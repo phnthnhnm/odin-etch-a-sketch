@@ -74,11 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (darkness < 1) {
         darkness += 0.1
         div.dataset.darkness = darkness
-        if (document.body.classList.contains('dark-mode')) {
-          div.style.backgroundColor = `rgba(255, 255, 255, ${darkness})` // Lighten in dark mode
-        } else {
-          div.style.backgroundColor = `rgba(0, 0, 0, ${darkness})` // Darken in light mode
-        }
+
+        div.style.backgroundColor = `rgba(0, 0, 0, ${darkness})` // Darken in light mode
       }
     } else {
       div.style.backgroundColor = penColor

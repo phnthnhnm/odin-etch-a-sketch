@@ -81,6 +81,7 @@ body.dark-mode input[type='color'] {
   max-width: 680px;
   max-height: 680px;
   border: 2px solid var(--ctp-latte-green);
+  background-color: #fff;
 }
 
 body.dark-mode .container {

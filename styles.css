@@ -34,6 +34,6 @@ select {
   box-sizing: border-box;
 }
 
-.grid-item:hover {
+/* .grid-item:hover {
   background-color: #000;
-}
+} */

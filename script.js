@@ -19,21 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.insertBefore(modeSelect, container)
 
   let mode = 'fixed'
+  let isDrawing = false
 
   function getRandomColor() {
     const r = Math.floor(Math.random() * 256)
     const g = Math.floor(Math.random() * 256)
     const b = Math.floor(Math.random() * 256)
     return `rgb(${r}, ${g}, ${b})`
-  }
-
-  function darkenColor(color) {
-    const match = color.match(/rgba?\((\d+), (\d+), (\d+),? ?(\d?.?\d*)?\)/)
-    if (!match) return 'rgba(0, 0, 0, 0.1)'
-    let [r, g, b, a] = match.slice(1).map(Number)
-    a = a ? a + 0.1 : 0.1
-    if (a > 1) a = 1
-    return `rgba(${r}, ${g}, ${b}, ${a})`
   }
 
   function createGrid(size) {
@@ -51,20 +43,35 @@ document.addEventListener('DOMContentLoaded', () => {
       div.dataset.darkness = '0' // Initialize darkness level
       container.appendChild(div)
 
+      div.addEventListener('mousedown', () => {
+        isDrawing = true
+        applyColor(div)
+      })
+
       div.addEventListener('mouseover', () => {
-        if (mode === 'random') {
-          div.style.backgroundColor = getRandomColor()
-        } else if (mode === 'darken') {
-          let darkness = parseFloat(div.dataset.darkness)
-          if (darkness < 1) {
-            darkness += 0.1
-            div.dataset.darkness = darkness
-            div.style.backgroundColor = `rgba(0, 0, 0, ${darkness})`
-          }
-        } else {
-          div.style.backgroundColor = '#000'
+        if (isDrawing) {
+          applyColor(div)
         }
       })
+    }
+
+    document.addEventListener('mouseup', () => {
+      isDrawing = false
+    })
+  }
+
+  function applyColor(div) {
+    if (mode === 'random') {
+      div.style.backgroundColor = getRandomColor()
+    } else if (mode === 'darken') {
+      let darkness = parseFloat(div.dataset.darkness)
+      if (darkness < 1) {
+        darkness += 0.1
+        div.dataset.darkness = darkness
+        div.style.backgroundColor = `rgba(0, 0, 0, ${darkness})`
+      }
+    } else {
+      div.style.backgroundColor = '#000'
     }
   }
 

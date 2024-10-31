@@ -53,6 +53,15 @@ document.addEventListener('DOMContentLoaded', () => {
           applyColor(div)
         }
       })
+
+      div.addEventListener('mouseup', () => {
+        isDrawing = false
+      })
+
+      // Prevent default drag behavior
+      div.addEventListener('dragstart', (e) => {
+        e.preventDefault()
+      })
     }
 
     document.addEventListener('mouseup', () => {

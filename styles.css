@@ -1,11 +1,11 @@
 body {
   display: flex;
-  flex-direction: row; /* Changed from column to row */
+  flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start; /* Changed from center to flex-start */
+  align-items: flex-start;
   height: 100vh;
   margin: 0;
-  padding: 20px; /* Adjusted padding */
+  padding: 20px;
   background-color: #eff1f5;
   color: #4c4f69;
 }
@@ -13,7 +13,7 @@ body {
 .menu {
   display: flex;
   flex-direction: column;
-  margin-right: 20px; /* Space between menu and grid */
+  margin-right: 20px;
 }
 
 button,
@@ -31,7 +31,7 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 100%; /* Make buttons uniform in size */
+  width: 100%;
 }
 
 button:hover {
@@ -51,10 +51,10 @@ input[type='color'] {
 .container {
   display: flex;
   flex-wrap: wrap;
-  width: 70vw; /* Increased from 50vw to 70vw */
-  height: 70vw; /* Increased from 50vw to 70vw */
-  max-width: 680px; /* Increased from 480px to 680px */
-  max-height: 680px; /* Increased from 480px to 680px */
+  width: 70vw;
+  height: 70vw;
+  max-width: 680px;
+  max-height: 680px;
   border: 2px solid #a6d189;
 }
 
@@ -70,8 +70,8 @@ input[type='color'] {
   border: 1px solid #a6d189;
   border-radius: 5px;
   cursor: pointer;
-  margin-right: 10px; /* Space between mode buttons */
-  width: calc(33.33% - 10px); /* Make mode buttons uniform in size */
+  margin-right: 10px;
+  width: calc(33.33% - 10px);
   box-sizing: border-box;
 }
 
@@ -86,5 +86,5 @@ input[type='range'] {
 }
 
 .grid-item.with-border {
-  border: 1px solid #4c4f69; /* Add border to grid items */
+  border: 1px solid #4c4f69;
 }

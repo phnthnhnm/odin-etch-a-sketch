@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.container')
-  const button = document.querySelector('button')
+  const button = document.querySelector('#clear')
   const penColorInput = document.getElementById('pen-color')
   const bgColorInput = document.getElementById('bg-color')
   const sizeSlider = document.getElementById('grid-size')
@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function createGrid(size) {
-    container.innerHTML = '' // Clear existing grid
+    container.innerHTML = ''
 
-    const containerSize = container.clientWidth // Get the container size
-    const itemSize = containerSize / size // Calculate the size of each grid item
+    const containerSize = container.clientWidth
+    const itemSize = containerSize / size
 
     for (let i = 0; i < size * size; i++) {
       const div = document.createElement('div')
@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       div.style.width = `${itemSize}px`
       div.style.height = `${itemSize}px`
-      div.style.backgroundColor = bgColor // Initialize with background color
-      div.dataset.darkness = '0' // Initialize darkness level
+      div.style.backgroundColor = bgColor
+      div.dataset.darkness = '0'
       container.appendChild(div)
 
       div.addEventListener('mousedown', () => {
@@ -99,12 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   bgColorInput.addEventListener('input', (e) => {
     bgColor = e.target.value
-    createGrid(container.childElementCount ** 0.5) // Recreate grid with new background color
+    createGrid(container.childElementCount ** 0.5)
   })
 
   sizeSlider.addEventListener('input', (e) => {
     sizeLabel.textContent = `Grid Size: ${e.target.value} x ${e.target.value}`
-    createGrid(parseInt(e.target.value)) // Create grid immediately when slider value changes
+    createGrid(parseInt(e.target.value))
   })
 
   toggleGridLinesButton.addEventListener('click', () => {
@@ -114,6 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
-  createGrid(16) // Initial grid
-  modeButtons[0].classList.add('active') // Set initial active mode button
+  createGrid(16)
+  modeButtons[0].classList.add('active')
 })

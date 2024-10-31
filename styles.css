@@ -17,8 +17,10 @@ button {
 .container {
   display: flex;
   flex-wrap: wrap;
-  width: 960px;
-  height: 960px;
+  width: 50vw; /* Adjust width to fit roughly 50% of the viewport */
+  height: 50vw; /* Adjust height to fit roughly 50% of the viewport */
+  max-width: 480px; /* Reduced maximum width */
+  max-height: 480px; /* Reduced maximum height */
 }
 
 .grid-item {

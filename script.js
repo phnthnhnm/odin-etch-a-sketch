@@ -4,14 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function createGrid(size) {
     container.innerHTML = '' // Clear existing grid
-    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`
-    container.style.gridTemplateRows = `repeat(${size}, 1fr)`
+
+    const containerSize = container.clientWidth // Get the container size
+    const itemSize = containerSize / size // Calculate the size of each grid item
 
     for (let i = 0; i < size * size; i++) {
       const div = document.createElement('div')
       div.classList.add('grid-item')
-      div.style.width = `${960 / size}px`
-      div.style.height = `${960 / size}px`
+      div.style.width = `${itemSize}px`
+      div.style.height = `${itemSize}px`
       container.appendChild(div)
 
       div.addEventListener('mouseover', () => {

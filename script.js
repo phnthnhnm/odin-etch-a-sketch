@@ -3,22 +3,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const button = document.querySelector('button')
   const penColorInput = document.getElementById('pen-color')
   const bgColorInput = document.getElementById('bg-color')
-  const modeSelect = document.createElement('select')
-  const fixedOption = document.createElement('option')
-  const randomOption = document.createElement('option')
-  const darkenOption = document.createElement('option')
+  const menu = document.querySelector('.menu') // Select the menu div
+  const modeButtons = ['fixed', 'random', 'darken'].map((mode) => {
+    const button = document.createElement('button')
+    button.textContent = mode.charAt(0).toUpperCase() + mode.slice(1)
+    button.classList.add('pen-mode-button')
+    button.dataset.mode = mode
+    menu.appendChild(button)
+    return button
+  })
 
-  fixedOption.value = 'fixed'
-  fixedOption.textContent = 'Fixed Color'
-  randomOption.value = 'random'
-  randomOption.textContent = 'Random Color'
-  darkenOption.value = 'darken'
-  darkenOption.textContent = 'Progressive Darken'
+  const sizeSlider = document.createElement('input')
+  sizeSlider.type = 'range'
+  sizeSlider.min = '1'
+  sizeSlider.max = '100'
+  sizeSlider.value = '16'
+  menu.appendChild(sizeSlider)
 
-  modeSelect.appendChild(fixedOption)
-  modeSelect.appendChild(randomOption)
-  modeSelect.appendChild(darkenOption)
-  document.body.insertBefore(modeSelect, container)
+  const sizeLabel = document.createElement('label')
+  sizeLabel.textContent = `Grid Size: ${sizeSlider.value} x ${sizeSlider.value}`
+  menu.appendChild(sizeLabel)
 
   let mode = 'fixed'
   let isDrawing = false
@@ -89,14 +93,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   button.addEventListener('click', () => {
-    let size = parseInt(prompt('Enter the number of squares per side (max 100):'))
-    if (size > 100) size = 100
-    if (size < 1 || isNaN(size)) size = 16 // Default to 16 if invalid input
+    let size = parseInt(sizeSlider.value)
     createGrid(size)
   })
 
-  modeSelect.addEventListener('change', () => {
-    mode = modeSelect.value
+  modeButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      mode = btn.dataset.mode
+      modeButtons.forEach((b) => b.classList.remove('active'))
+      btn.classList.add('active')
+    })
   })
 
   penColorInput.addEventListener('input', (e) => {
@@ -108,5 +114,10 @@ document.addEventListener('DOMContentLoaded', () => {
     createGrid(container.childElementCount ** 0.5) // Recreate grid with new background color
   })
 
+  sizeSlider.addEventListener('input', (e) => {
+    sizeLabel.textContent = `Grid Size: ${e.target.value} x ${e.target.value}`
+  })
+
   createGrid(16) // Initial grid
+  modeButtons[0].classList.add('active') // Set initial active mode button
 })

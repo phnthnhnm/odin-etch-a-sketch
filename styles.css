@@ -1,50 +1,83 @@
 body {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Changed from center to flex-start */
-  align-items: center;
+  flex-direction: row; /* Changed from column to row */
+  justify-content: flex-start;
+  align-items: flex-start; /* Changed from center to flex-start */
   height: 100vh;
   margin: 0;
-  padding-top: 20px; /* Added padding to ensure button is visible */
-  background-color: #eff1f5; /* Catppuccin Latte background */
-  color: #4c4f69; /* Catppuccin Latte text color */
+  padding: 20px; /* Adjusted padding */
+  background-color: #eff1f5;
+  color: #4c4f69;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px; /* Space between menu and grid */
+}
+
+button,
+select,
+label,
+input {
+  margin-bottom: 20px;
 }
 
 button {
-  margin-bottom: 20px;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #a6d189; /* Green accent */
-  color: #eff1f5; /* Text color */
+  background-color: #a6d189;
+  color: #eff1f5;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #89b4fa; /* Slightly lighter green on hover */
+  background-color: #89b4fa;
 }
 
-select {
-  margin-bottom: 20px;
+select,
+input[type='color'] {
   padding: 5px 10px;
   font-size: 16px;
-  background-color: #e6e9ef; /* Catppuccin Latte input background */
-  color: #4c4f69; /* Text color */
-  border: 1px solid #a6d189; /* Green accent border */
+  background-color: #e6e9ef;
+  color: #4c4f69;
+  border: 1px solid #a6d189;
   border-radius: 5px;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
-  width: 50vw; /* Adjust width to fit roughly 50% of the viewport */
-  height: 50vw; /* Adjust height to fit roughly 50% of the viewport */
-  max-width: 480px; /* Reduced maximum width */
-  max-height: 480px; /* Reduced maximum height */
-  border: 2px solid #a6d189; /* Green accent border */
+  width: 50vw;
+  height: 50vw;
+  max-width: 480px;
+  max-height: 480px;
+  border: 2px solid #a6d189;
 }
 
 .grid-item {
   box-sizing: border-box;
+}
+
+.pen-mode-button {
+  padding: 10px 15px;
+  font-size: 14px;
+  background-color: #e6e9ef;
+  color: #4c4f69;
+  border: 1px solid #a6d189;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px; /* Space between mode buttons */
+}
+
+.pen-mode-button.active {
+  background-color: #a6d189;
+  color: #eff1f5;
+}
+
+input[type='range'] {
+  width: 100%;
+  margin-bottom: 20px;
 }

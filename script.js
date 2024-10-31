@@ -48,16 +48,18 @@ document.addEventListener('DOMContentLoaded', () => {
       div.style.width = `${itemSize}px`
       div.style.height = `${itemSize}px`
       div.style.backgroundColor = 'rgba(0, 0, 0, 0)' // Initialize with transparent background
+      div.dataset.darkness = '0' // Initialize darkness level
       container.appendChild(div)
 
       div.addEventListener('mouseover', () => {
         if (mode === 'random') {
           div.style.backgroundColor = getRandomColor()
         } else if (mode === 'darken') {
-          const currentColor = div.style.backgroundColor
-          const newColor = darkenColor(currentColor)
-          if (newColor !== currentColor) {
-            div.style.backgroundColor = newColor
+          let darkness = parseFloat(div.dataset.darkness)
+          if (darkness < 1) {
+            darkness += 0.1
+            div.dataset.darkness = darkness
+            div.style.backgroundColor = `rgba(0, 0, 0, ${darkness})`
           }
         } else {
           div.style.backgroundColor = '#000'

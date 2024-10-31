@@ -1,3 +1,5 @@
+@import url('https://unpkg.com/@catppuccin/palette/css/catppuccin.css');
+
 body {
   display: flex;
   flex-direction: row;
@@ -6,8 +8,8 @@ body {
   height: 100vh;
   margin: 0;
   padding: 20px;
-  background-color: #eff1f5;
-  color: #4c4f69;
+  background-color: var(--ctp-latte-base);
+  color: var(--ctp-latte-text);
 }
 
 .menu {
@@ -26,8 +28,8 @@ input {
 button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #a6d189;
-  color: #eff1f5;
+  background-color: var(--ctp-latte-green);
+  color: var(--ctp-latte-base);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -35,16 +37,17 @@ button {
 }
 
 button:hover {
-  background-color: #89b4fa;
+  background-color: var(--ctp-latte-blue);
+  color: var(--ctp-latte-base);
 }
 
 select,
 input[type='color'] {
   padding: 5px 10px;
   font-size: 16px;
-  background-color: #e6e9ef;
-  color: #4c4f69;
-  border: 1px solid #a6d189;
+  background-color: var(--ctp-latte-mantle);
+  color: var(--ctp-latte-text);
+  border: 1px solid var(--ctp-latte-green);
   border-radius: 5px;
 }
 
@@ -55,7 +58,7 @@ input[type='color'] {
   height: 70vw;
   max-width: 680px;
   max-height: 680px;
-  border: 2px solid #a6d189;
+  border: 2px solid var(--ctp-latte-green);
 }
 
 .grid-item {
@@ -65,9 +68,9 @@ input[type='color'] {
 .pen-mode-button {
   padding: 10px 15px;
   font-size: 14px;
-  background-color: #e6e9ef;
-  color: #4c4f69;
-  border: 1px solid #a6d189;
+  background-color: var(--ctp-latte-mantle);
+  color: var(--ctp-latte-text);
+  border: 1px solid var(--ctp-latte-green);
   border-radius: 5px;
   cursor: pointer;
   margin-right: 10px;
@@ -76,8 +79,8 @@ input[type='color'] {
 }
 
 .pen-mode-button.active {
-  background-color: #a6d189;
-  color: #eff1f5;
+  background-color: var(--ctp-latte-green);
+  color: var(--ctp-latte-base);
 }
 
 input[type='range'] {
@@ -86,5 +89,5 @@ input[type='range'] {
 }
 
 .grid-item.with-border {
-  border: 1px solid #4c4f69;
+  border: 1px solid var(--ctp-latte-text);
 }

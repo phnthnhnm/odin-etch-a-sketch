@@ -5,5 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const div = document.createElement('div')
     div.classList.add('grid-item')
     container.appendChild(div)
+
+    div.addEventListener('mouseover', () => {
+      div.style.backgroundColor = '#000'
+    })
   }
 })

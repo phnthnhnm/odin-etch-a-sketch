@@ -19,3 +19,7 @@ body {
   border: 1px solid #ddd;
   box-sizing: border-box;
 }
+
+.grid-item:hover {
+  background-color: #000;
+}

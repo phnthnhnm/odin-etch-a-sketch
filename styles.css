@@ -81,3 +81,7 @@ input[type='range'] {
   width: 100%;
   margin-bottom: 20px;
 }
+
+.grid-item.with-border {
+  border: 1px solid #4c4f69; /* Add border to grid items */
+}

@@ -24,10 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
   sizeLabel.textContent = `Grid Size: ${sizeSlider.value} x ${sizeSlider.value}`
   menu.appendChild(sizeLabel)
 
+  const toggleGridLinesButton = document.createElement('button')
+  toggleGridLinesButton.textContent = 'Toggle Grid Lines'
+  menu.appendChild(toggleGridLinesButton)
+
   let mode = 'fixed'
   let isDrawing = false
   let penColor = penColorInput.value
   let bgColor = bgColorInput.value
+  let showGridLines = true
 
   function getRandomColor() {
     const r = Math.floor(Math.random() * 256)
@@ -45,6 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < size * size; i++) {
       const div = document.createElement('div')
       div.classList.add('grid-item')
+      if (showGridLines) {
+        div.classList.add('with-border')
+      }
       div.style.width = `${itemSize}px`
       div.style.height = `${itemSize}px`
       div.style.backgroundColor = bgColor // Initialize with background color
@@ -116,6 +124,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sizeSlider.addEventListener('input', (e) => {
     sizeLabel.textContent = `Grid Size: ${e.target.value} x ${e.target.value}`
+  })
+
+  toggleGridLinesButton.addEventListener('click', () => {
+    showGridLines = !showGridLines
+    document.querySelectorAll('.grid-item').forEach((item) => {
+      item.classList.toggle('with-border', showGridLines)
+    })
   })
 
   createGrid(16) // Initial grid

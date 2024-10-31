@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sizeSlider.addEventListener('input', (e) => {
     sizeLabel.textContent = `Grid Size: ${e.target.value} x ${e.target.value}`
+    createGrid(parseInt(e.target.value)) // Create grid immediately when slider value changes
   })
 
   toggleGridLinesButton.addEventListener('click', () => {

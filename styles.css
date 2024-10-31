@@ -51,10 +51,10 @@ input[type='color'] {
 .container {
   display: flex;
   flex-wrap: wrap;
-  width: 50vw;
-  height: 50vw;
-  max-width: 480px;
-  max-height: 480px;
+  width: 70vw; /* Increased from 50vw to 70vw */
+  height: 70vw; /* Increased from 50vw to 70vw */
+  max-width: 680px; /* Increased from 480px to 680px */
+  max-height: 680px; /* Increased from 480px to 680px */
   border: 2px solid #a6d189;
 }
 

@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sizeLabel = document.getElementById('grid-size-label')
   const toggleGridLinesButton = document.getElementById('toggle-grid-lines')
   const modeButtons = document.querySelectorAll('.pen-mode-button')
+  const toggleDarkModeButton = document.getElementById('toggle-dark-mode')
 
   let mode = 'fixed'
   let isDrawing = false
@@ -73,7 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (darkness < 1) {
         darkness += 0.1
         div.dataset.darkness = darkness
-        div.style.backgroundColor = `rgba(0, 0, 0, ${darkness})`
+        if (document.body.classList.contains('dark-mode')) {
+          div.style.backgroundColor = `rgba(255, 255, 255, ${darkness})` // Lighten in dark mode
+        } else {
+          div.style.backgroundColor = `rgba(0, 0, 0, ${darkness})` // Darken in light mode
+        }
       }
     } else {
       div.style.backgroundColor = penColor
@@ -112,6 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.grid-item').forEach((item) => {
       item.classList.toggle('with-border', showGridLines)
     })
+  })
+
+  toggleDarkModeButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode')
   })
 
   createGrid(16)

@@ -1,16 +1,24 @@
 body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start; /* Changed from center to flex-start */
   align-items: center;
   height: 100vh;
   margin: 0;
+  padding-top: 20px; /* Added padding to ensure button is visible */
+}
+
+button {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
-  width: 320px; /* 16 * 20px */
-  height: 320px; /* 16 * 20px */
+  width: 960px;
+  height: 960px;
 }
 
 .grid-item {

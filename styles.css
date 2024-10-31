@@ -21,12 +21,10 @@ button {
   height: 50vw; /* Adjust height to fit roughly 50% of the viewport */
   max-width: 480px; /* Reduced maximum width */
   max-height: 480px; /* Reduced maximum height */
+  border: 2px solid #000; /* Added border to the container */
 }
 
 .grid-item {
-  width: 20px;
-  height: 20px;
-  border: 1px solid #ddd;
   box-sizing: border-box;
 }
 

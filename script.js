@@ -3,30 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const button = document.querySelector('button')
   const penColorInput = document.getElementById('pen-color')
   const bgColorInput = document.getElementById('bg-color')
-  const menu = document.querySelector('.menu') // Select the menu div
-  const modeButtons = ['fixed', 'random', 'darken'].map((mode) => {
-    const button = document.createElement('button')
-    button.textContent = mode.charAt(0).toUpperCase() + mode.slice(1)
-    button.classList.add('pen-mode-button')
-    button.dataset.mode = mode
-    menu.appendChild(button)
-    return button
-  })
-
-  const sizeSlider = document.createElement('input')
-  sizeSlider.type = 'range'
-  sizeSlider.min = '1'
-  sizeSlider.max = '100'
-  sizeSlider.value = '16'
-  menu.appendChild(sizeSlider)
-
-  const sizeLabel = document.createElement('label')
-  sizeLabel.textContent = `Grid Size: ${sizeSlider.value} x ${sizeSlider.value}`
-  menu.appendChild(sizeLabel)
-
-  const toggleGridLinesButton = document.createElement('button')
-  toggleGridLinesButton.textContent = 'Toggle Grid Lines'
-  menu.appendChild(toggleGridLinesButton)
+  const sizeSlider = document.getElementById('grid-size')
+  const sizeLabel = document.getElementById('grid-size-label')
+  const toggleGridLinesButton = document.getElementById('toggle-grid-lines')
+  const modeButtons = document.querySelectorAll('.pen-mode-button')
 
   let mode = 'fixed'
   let isDrawing = false

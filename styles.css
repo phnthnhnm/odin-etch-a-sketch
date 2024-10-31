@@ -31,6 +31,7 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 100%; /* Make buttons uniform in size */
 }
 
 button:hover {
@@ -70,6 +71,8 @@ input[type='color'] {
   border-radius: 5px;
   cursor: pointer;
   margin-right: 10px; /* Space between mode buttons */
+  width: calc(33.33% - 10px); /* Make mode buttons uniform in size */
+  box-sizing: border-box;
 }
 
 .pen-mode-button.active {

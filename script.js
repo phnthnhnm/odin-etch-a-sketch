@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.container')
   const button = document.querySelector('button')
+  const penColorInput = document.getElementById('pen-color')
+  const bgColorInput = document.getElementById('bg-color')
   const modeSelect = document.createElement('select')
   const fixedOption = document.createElement('option')
   const randomOption = document.createElement('option')
@@ -20,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let mode = 'fixed'
   let isDrawing = false
+  let penColor = penColorInput.value
+  let bgColor = bgColorInput.value
 
   function getRandomColor() {
     const r = Math.floor(Math.random() * 256)
@@ -39,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
       div.classList.add('grid-item')
       div.style.width = `${itemSize}px`
       div.style.height = `${itemSize}px`
-      div.style.backgroundColor = 'rgba(0, 0, 0, 0)' // Initialize with transparent background
+      div.style.backgroundColor = bgColor // Initialize with background color
       div.dataset.darkness = '0' // Initialize darkness level
       container.appendChild(div)
 
@@ -80,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         div.style.backgroundColor = `rgba(0, 0, 0, ${darkness})`
       }
     } else {
-      div.style.backgroundColor = '#000'
+      div.style.backgroundColor = penColor
     }
   }
 
@@ -93,6 +97,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   modeSelect.addEventListener('change', () => {
     mode = modeSelect.value
+  })
+
+  penColorInput.addEventListener('input', (e) => {
+    penColor = e.target.value
+  })
+
+  bgColorInput.addEventListener('input', (e) => {
+    bgColor = e.target.value
+    createGrid(container.childElementCount ** 0.5) // Recreate grid with new background color
   })
 
   createGrid(16) // Initial grid

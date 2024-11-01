@@ -118,8 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   toggleDarkModeButton.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode')
+    toggleDarkModeButton.innerHTML = document.body.classList.contains('dark-mode') ? '🌞' : '🌜'
   })
 
+  toggleDarkModeButton.innerHTML = '🌜'
   createGrid(16)
   modeButtons[0].classList.add('active')
 })
